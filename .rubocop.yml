@@ -1,0 +1,21 @@
+inherit_gem:
+    rubocop-shopify: rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: enable
+
+Style/MethodCallWithArgsParentheses:
+  Exclude:
+    - '**/Gemfile'
+    - 'spec/**/*'
+
+Style/ClassMethodsDefinitions:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
