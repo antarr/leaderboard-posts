@@ -2,8 +2,13 @@ module Api
   module V1
     class PostsController < ApiController
       def index
-        @posts = Post.all.page(page).per(per_page)
-        render json: @posts
+        posts = Post.all.page(page).per(per_page)
+        render json: posts, status: :ok
+      end
+
+      def top
+        posts = Post.by_rating.page(1).per(per_page)
+        render json: posts, status: :ok
       end
 
       def create

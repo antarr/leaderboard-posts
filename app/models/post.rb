@@ -10,6 +10,7 @@
 #  updated_at :datetime         not null
 #  user_id    :bigint           not null
 #
+
 class Post < ApplicationRecord
   paginates_per 10
 
@@ -21,4 +22,6 @@ class Post < ApplicationRecord
   validates :ip, presence: true, format: { with: /\A\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/ }
 
   delegate :login, to: :user, prefix: true
+
+  scope :by_rating, -> { joins(:ratings).group(:id).order('sum(ratings.value) desc') }
 end

@@ -3,7 +3,7 @@ module Api
     class RatingsController < ApiController
       def index
         ratings = Rating.all.page(page).per(per_page)
-        render json: ratings
+        render json: ratings, status: :ok
       end
 
       def create

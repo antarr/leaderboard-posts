@@ -57,4 +57,29 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
+
+  describe 'GET /top_posts' do
+    before do
+      posts = create_list(:post, 10)
+      posts.each do |post|
+        20.times do
+          create(:rating, post: post)
+        end
+      end
+    end
+
+    it 'returns top N ratings' do
+      get '/api/v1/top_posts', params: { per_page: 5 }
+      posts = JSON.parse(response.body)
+      expect(posts.size).to eq(5)
+    end
+
+    it 'returns the posts sorted by rating' do
+      get '/api/v1/top_posts', params: { per_page: 5 }
+      posts = JSON.parse(response.body)
+      top = Post.find(posts.first['id']).ratings.average(:value)
+      bottom = Post.find(posts.last['id']).ratings.average(:value)
+      expect(top).to be > bottom
+    end
+  end
 end
