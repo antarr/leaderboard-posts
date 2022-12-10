@@ -2,14 +2,17 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   describe 'GET /posts' do
+    before do
+      user = create(:user)
+      create_list(:post, 11, user: user)
+    end
+
     it 'returns http success' do
       get '/api/v1/posts'
       expect(response).to have_http_status(:success)
     end
 
     it 'returns paginated posts' do
-      user = create(:user)
-      create_list(:post, 11, user: user)
       get '/api/v1/posts'
       posts = JSON.parse(response.body)
       expect(posts.size).to eq(10)
