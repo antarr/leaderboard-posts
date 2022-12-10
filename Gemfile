@@ -35,8 +35,14 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0'
 end
 
-group :development do
+group :test do
   gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
+end
+
+group :development do
+  gem 'annotate'
   gem 'rubocop', require: false
   gem 'rubocop-ast', require: false
   gem 'rubocop-performance', require: false
