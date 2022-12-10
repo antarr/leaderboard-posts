@@ -18,7 +18,7 @@ module Api
       end
 
       def user
-        @user = User.find_or_create_by!(login: post_params[:user_login])
+        @user ||= User.find_or_create_by!(login: post_params[:user_login])
       end
 
       def per_page

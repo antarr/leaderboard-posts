@@ -19,4 +19,7 @@ RSpec.describe User, type: :model do
 
   it { should validate_presence_of(:login) }
   it { should validate_uniqueness_of(:login).case_insensitive }
+  describe 'associations' do
+    it { should have_many(:posts).dependent(:destroy).inverse_of(:user) }
+  end
 end

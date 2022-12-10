@@ -15,4 +15,5 @@
 class User < ApplicationRecord
   validates :login, presence: true, uniqueness: { case_sensitive: true }
   has_many :posts, dependent: :destroy, inverse_of: :user
+  has_many :ratings, dependent: :destroy, inverse_of: :user
 end

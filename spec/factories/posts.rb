@@ -16,6 +16,7 @@ FactoryBot.define do
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.paragraph }
     ip { Faker::Internet.ip_v4_address }
+    user
     trait :with_user do
       user_login { Faker::Internet.username }
     end

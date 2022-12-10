@@ -14,6 +14,7 @@ class Post < ApplicationRecord
   paginates_per 10
 
   belongs_to :user, inverse_of: :posts
+  has_many :ratings, dependent: :destroy, inverse_of: :post
 
   validates :title, presence: true
   validates :body, presence: true
