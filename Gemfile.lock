@@ -258,6 +258,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   kaminari
+  parallel
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)

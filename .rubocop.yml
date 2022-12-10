@@ -19,6 +19,9 @@ Style/FrozenStringLiteralComment:
 Layout/LineLength:
   Enabled: false
 
+Style/TrailingCommaInArguments:
+  Enabled: false
+
 Style/StringLiterals:
   EnforcedStyle: single_quotes
   SupportedStyles:
