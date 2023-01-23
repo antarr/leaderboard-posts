@@ -8,7 +8,7 @@ To install and use Leaderboard Posts, please follow the instructions below:
 
 1. Install the latest the version of Ruby specified in the `.ruby-version` file.
 2. Install and configure PostgreSQL.
-3. Clone the source code from GitHub: `git clone https://github.com/username/leaderboard-posts.git`
+3. Clone the source code from GitHub: `git clone https://github.com/antarr/leaderboard-posts.git`
 4. Change into the project directory: `cd leaderboard-posts`
 5. Install the required gems: `bundle install`
 6. Set up the database: `rails db:migrate`
