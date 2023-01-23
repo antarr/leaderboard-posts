@@ -24,4 +24,5 @@ class Post < ApplicationRecord
   delegate :login, to: :user, prefix: true
 
   scope :by_rating, -> { joins(:ratings).group(:id).order('sum(ratings.value) desc') }
+  scope :by_average_rating, -> { joins(:ratings).group(:id).order('avg(ratings.value) desc') }
 end
